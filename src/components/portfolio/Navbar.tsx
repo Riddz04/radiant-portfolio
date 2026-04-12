@@ -12,17 +12,16 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "About", href: "#about", number: "01" },
-    { name: "Experience", href: "#experience", number: "02" },
-    { name: "Work", href: "#work", number: "03" },
-    { name: "Contact", href: "#contact", number: "04" },
+    { name: "Projects", href: "#work" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-navy/90 backdrop-blur-xl shadow-lg border-b border-navy-lightest/30"
+          ? "bg-background/90 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -30,39 +29,29 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           <a
             href="#home"
-            className="gradient-text text-xl font-bold font-mono hover:scale-105 transition-transform"
+            className="text-foreground text-lg font-bold tracking-tight"
           >
-            &lt;RD /&gt;
+            RD<span className="text-olive-muted text-xs align-super">©</span>
           </a>
 
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link, i) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="group relative px-4 py-2 rounded-lg hover:bg-green-tint transition-all duration-300"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <span className="text-green-accent font-mono text-xs mr-1">
-                  {link.number}.
-                </span>
-                <span className="text-slate-lightest text-sm group-hover:text-green-accent transition-colors">
+              <span key={link.name} className="flex items-center">
+                <a
+                  href={link.href}
+                  className="px-3 py-2 text-foreground text-sm font-medium hover:text-olive transition-colors"
+                >
                   {link.name}
-                </span>
-              </a>
+                </a>
+                {i < navLinks.length - 1 && (
+                  <span className="text-olive-muted mx-1">|</span>
+                )}
+              </span>
             ))}
-            <a
-              href="/Riddhi_Dhawan.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 border border-green-accent text-green-accent px-5 py-2 rounded-lg hover:bg-green-tint transition-all font-mono text-sm hover:shadow-[0_0_20px_hsl(166_100%_70%/0.15)]"
-            >
-              Resume
-            </a>
           </div>
 
           <button
-            className="md:hidden text-green-accent hover:bg-green-tint p-2 rounded-lg transition-colors"
+            className="md:hidden text-foreground p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -71,26 +60,23 @@ const Navbar = () => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-navy-light/95 backdrop-blur-xl border-t border-navy-lightest/30 animate-fade-in-up">
-          <div className="px-6 py-6 space-y-2">
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border animate-fade-in">
+          <div className="px-6 py-6 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg hover:bg-green-tint transition-all"
+                className="block px-4 py-3 text-foreground hover:text-olive transition-colors font-medium"
               >
-                <span className="text-green-accent font-mono text-sm mr-2">
-                  {link.number}.
-                </span>
-                <span className="text-slate-lightest">{link.name}</span>
+                {link.name}
               </a>
             ))}
             <a
               href="/Riddhi_Dhawan.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-center border border-green-accent text-green-accent px-4 py-3 rounded-lg hover:bg-green-tint transition-colors font-mono text-sm mt-4"
+              className="block text-center border border-foreground text-foreground px-4 py-3 rounded-full text-sm mt-4 hover:bg-foreground hover:text-background transition-all"
             >
               Resume
             </a>

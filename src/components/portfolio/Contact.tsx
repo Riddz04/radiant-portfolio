@@ -1,29 +1,49 @@
-import { Send } from "lucide-react";
+import { ArrowUpRight, Globe } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-screen py-20 px-6 lg:px-12 flex items-center relative">
-      <div className="absolute inset-0 dot-pattern opacity-20" />
-      <div className="max-w-3xl mx-auto text-center w-full relative">
-        <h2 className="section-heading justify-center" data-number="04.">Get In Touch</h2>
-
-        <div className="space-y-6 mt-12">
-          <p className="text-slate-custom text-lg leading-relaxed">
-            I'm currently looking for new opportunities and my inbox is always open.
-            Whether you have a question or just want to say hi, I'll try my best to get back to you!
+    <section id="contact" className="dark-section py-24 px-6 lg:px-12 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Large CTA Text */}
+        <div className="text-center mb-12">
+          <p className="text-cream/40 text-lg mb-6">
+            Your design is a masterpiece waiting to become alive.
           </p>
+          <h2 className="display-heading-light text-[clamp(2.5rem,7vw,6rem)] leading-[1.05]">
+            Let's Make it
+            <br />
+            happen
+          </h2>
+        </div>
 
-          <p className="text-slate-lightest text-xl">
-            Feel free to reach out if you want to collaborate on a project, need help with web development, or just want to connect.
-          </p>
+        {/* CTA Button */}
+        <div className="flex justify-center mb-16">
+          <a
+            href="mailto:riddhidhawan.work@gmail.com"
+            className="group inline-flex items-center gap-3 bg-cream text-dark px-10 py-5 rounded-full font-semibold text-lg hover:bg-cream-dark transition-colors"
+          >
+            <span>GET IN TOUCH</span>
+            <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </a>
+        </div>
 
-          <div className="pt-8">
+        {/* Bottom Info */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-t border-cream/10 pt-8">
+          <div className="flex items-center gap-3">
+            <Globe size={16} className="text-cream/40" />
+            <div>
+              <p className="text-xs text-cream/40 uppercase tracking-wider">Working Globally</p>
+              <p className="text-cream/60 text-sm">Available for opportunities</p>
+            </div>
+          </div>
+
+          <div className="text-right">
+            <p className="text-xs text-cream/40 uppercase tracking-wider">For Further Inquiries</p>
             <a
               href="mailto:riddhidhawan.work@gmail.com"
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-green-accent to-cyan-accent text-navy px-10 py-4 rounded-xl font-mono text-lg font-semibold transition-all duration-300 hover:shadow-[0_0_40px_hsl(166_100%_70%/0.3)] hover:scale-[1.03] animate-gradient bg-[length:200%_200%]"
+              className="text-cream/60 hover:text-cream transition-colors text-sm"
             >
-              <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              Say Hello
+              ↳ riddhidhawan.work@gmail.com
             </a>
           </div>
         </div>

@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       colors: {
@@ -23,24 +24,21 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--light-navy))",
-          lightest: "hsl(var(--lightest-navy))",
+        cream: {
+          DEFAULT: "hsl(var(--cream))",
+          dark: "hsl(var(--cream-dark))",
         },
-        slate: {
-          custom: "hsl(var(--slate))",
-          light: "hsl(var(--light-slate))",
-          lightest: "hsl(var(--lightest-slate))",
+        olive: {
+          DEFAULT: "hsl(var(--olive))",
+          dark: "hsl(var(--olive-dark))",
+          muted: "hsl(var(--olive-muted))",
         },
-        green: {
-          accent: "hsl(var(--green))",
-          dark: "hsl(var(--green-dark))",
-          tint: "hsl(var(--green-tint) / 0.1)",
+        charcoal: "hsl(var(--charcoal))",
+        dark: {
+          DEFAULT: "hsl(var(--dark))",
+          surface: "hsl(var(--dark-surface))",
         },
-        cyan: {
-          accent: "hsl(var(--cyan))",
-        },
+        "warm-gray": "hsl(var(--warm-gray))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
