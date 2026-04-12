@@ -1,70 +1,87 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import profileImg from "@/assets/photo2.jpeg";
+import activityImage from "@/assets/github-activity.png";
 
 const Hero = () => {
+  const currentMonth = new Date().toLocaleString('en-US', { month: 'short' }).toUpperCase();
+  const currentYear = new Date().getFullYear().toString().slice(-2);
+
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 lg:px-12 overflow-hidden"
-    >
-      {/* Ambient background effects */}
-      <div className="absolute inset-0 dot-pattern opacity-30" />
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-green-accent/5 rounded-full blur-[120px] animate-float" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-accent/5 rounded-full blur-[120px] animate-float" style={{ animationDelay: '3s' }} />
-
-      <div className="relative max-w-7xl w-full">
-        <div className="space-y-6">
-          <p
-            className="text-green-accent font-mono text-base md:text-lg flex items-center gap-2 animate-fade-in-up"
-          >
-            <Sparkles size={18} className="animate-pulse" />
-            Hi, my name is
-          </p>
-
-          <h1
-            className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight animate-fade-in-up"
-            style={{ animationDelay: '0.1s' }}
-          >
-            <span className="gradient-text">Riddhi Dhawan.</span>
+    <section id="home" className="min-h-screen pt-20 px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto">
+        {/* Giant Name */}
+        <div className="pt-12 pb-8">
+          <h1 className="display-heading text-[clamp(3rem,10vw,8rem)] tracking-[0.08em] uppercase">
+            RIDDHI DHAWAN
+            <span className="inline-block text-olive-muted ml-4 text-[0.6em]">✳</span>
           </h1>
+        </div>
 
-          <h2
-            className="text-slate-custom text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight animate-fade-in-up"
-            style={{ animationDelay: '0.2s' }}
-          >
-            I build things for the web.
-          </h2>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pb-16">
+          {/* GitHub Activity Card */}
+          <div className="md:col-span-4">
+            <div className="editorial-card p-5 h-full">
+              <div className="flex items-center justify-between mb-4">
+                <span className="section-label">GitHub Activity</span>
+                <a
+                  href="https://github.com/Riddz04"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-olive-muted hover:text-foreground transition-colors"
+                >
+                  @Riddz04
+                </a>
+              </div>
+              <div className="rounded overflow-hidden mb-4">
+                <img
+                  src={activityImage}
+                  alt="GitHub contributions"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex gap-8">
+                <div>
+                  <p className="text-xs text-olive-muted">This Year</p>
+                  <p className="text-2xl font-bold text-foreground">500+</p>
+                </div>
+                <div>
+                  <p className="text-xs text-olive-muted">Longest Streak</p>
+                  <p className="text-2xl font-bold text-foreground">30 days</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <p
-            className="text-slate-custom text-lg md:text-xl max-w-2xl leading-relaxed animate-fade-in-up"
-            style={{ animationDelay: '0.3s' }}
-          >
-            I'm a software engineer specializing in building exceptional digital
-            experiences. Currently, I'm focused on building accessible,
-            human-centered products.
-          </p>
-
-          <div
-            className="flex flex-wrap gap-4 pt-8 animate-fade-in-up"
-            style={{ animationDelay: '0.4s' }}
-          >
-            <a
-              href="#work"
-              className="group relative flex items-center space-x-2 border border-green-accent text-green-accent px-8 py-4 rounded-lg font-mono overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_hsl(166_100%_70%/0.2)]"
-            >
-              <div className="absolute inset-0 bg-green-tint opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="relative">Check out my work</span>
-              <ArrowRight
-                size={20}
-                className="relative group-hover:translate-x-1 transition-transform"
+          {/* Profile Photo */}
+          <div className="md:col-span-4">
+            <div className="relative h-80 md:h-full rounded-lg overflow-hidden">
+              <img
+                src={profileImg}
+                alt="Riddhi Dhawan"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="md:col-span-4 flex flex-col gap-6">
+            {/* CTA */}
+            <a
+              href="mailto:riddhidhawan.work@gmail.com"
+              className="group flex items-center justify-between bg-foreground text-background px-8 py-5 rounded-full font-medium text-lg hover:bg-olive-dark transition-colors"
+            >
+              <span>GET IN TOUCH</span>
+              <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
 
-            <a
-              href="#contact"
-              className="group flex items-center space-x-2 bg-gradient-to-r from-green-accent to-cyan-accent text-navy px-8 py-4 rounded-lg font-mono font-semibold transition-all duration-300 hover:shadow-[0_0_30px_hsl(166_100%_70%/0.3)] hover:scale-[1.02] animate-gradient bg-[length:200%_200%]"
-            >
-              <span>Get in touch</span>
-            </a>
+            {/* Date */}
+            <div className="flex-1 flex items-end justify-end">
+              <h2 className="display-heading text-[clamp(3rem,8vw,6rem)] text-right leading-none">
+                {currentMonth} '{currentYear}
+              </h2>
+            </div>
           </div>
         </div>
       </div>
