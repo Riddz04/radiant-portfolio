@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Home, Monitor, BarChart3, Wrench, Mail, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -11,75 +11,57 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Projects", href: "#work" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+  const navItems = [
+    { icon: Home, href: "#home", label: "Home" },
+    { icon: Monitor, href: "#work", label: "Projects" },
+    { icon: BarChart3, href: "#experience", label: "Experience" },
+    { icon: Wrench, href: "#tools", label: "Tools" },
+    { icon: Mail, href: "#contact", label: "Contact" },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+      {/* Desktop Nav */}
+      <div className={`hidden md:flex nav-pill px-2 py-2 gap-1 transition-all duration-300 ${
+        scrolled ? "shadow-lg shadow-black/20" : ""
+      }`}>
+        {navItems.map((item) => (
           <a
-            href="#home"
-            className="text-foreground text-lg font-bold tracking-tight"
+            key={item.label}
+            href={item.href}
+            className="p-3 rounded-full text-white-subtle hover:text-foreground hover:bg-dark-card transition-all duration-200"
+            title={item.label}
           >
-            RD<span className="text-olive-muted text-xs align-super">©</span>
+            <item.icon size={18} />
           </a>
+        ))}
+      </div>
 
-          <div className="hidden md:flex items-center gap-2">
-            {navLinks.map((link, i) => (
-              <span key={link.name} className="flex items-center">
-                <a
-                  href={link.href}
-                  className="px-3 py-2 text-foreground text-sm font-medium hover:text-olive transition-colors"
-                >
-                  {link.name}
-                </a>
-                {i < navLinks.length - 1 && (
-                  <span className="text-olive-muted mx-1">|</span>
-                )}
-              </span>
-            ))}
-          </div>
-
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+      {/* Mobile Nav */}
+      <div className="md:hidden flex items-center justify-between w-full">
+        <a href="#home" className="text-foreground text-lg font-bold">RD</a>
+        <button
+          className="nav-pill p-3 text-foreground"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border animate-fade-in">
-          <div className="px-6 py-6 space-y-1">
-            {navLinks.map((link) => (
+        <div className="md:hidden fixed inset-0 top-16 bg-background/98 backdrop-blur-xl z-40 animate-fade-in">
+          <div className="flex flex-col items-center justify-center h-full gap-8">
+            {navItems.map((item) => (
               <a
-                key={link.name}
-                href={link.href}
+                key={item.label}
+                href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 text-foreground hover:text-olive transition-colors font-medium"
+                className="flex items-center gap-3 text-xl text-white-muted hover:text-foreground transition-colors"
               >
-                {link.name}
+                <item.icon size={22} />
+                <span>{item.label}</span>
               </a>
             ))}
-            <a
-              href="/Riddhi_Dhawan.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center border border-foreground text-foreground px-4 py-3 rounded-full text-sm mt-4 hover:bg-foreground hover:text-background transition-all"
-            >
-              Resume
-            </a>
           </div>
         </div>
       )}

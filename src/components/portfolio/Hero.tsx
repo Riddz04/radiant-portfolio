@@ -1,86 +1,118 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
 import profileImg from "@/assets/photo2.jpeg";
-import activityImage from "@/assets/github-activity.png";
 
 const Hero = () => {
-  const currentMonth = new Date().toLocaleString('en-US', { month: 'short' }).toUpperCase();
-  const currentYear = new Date().getFullYear().toString().slice(-2);
-
   return (
-    <section id="home" className="min-h-screen pt-20 px-6 lg:px-12">
+    <section id="home" className="min-h-screen pt-28 pb-20 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Giant Name */}
-        <div className="pt-12 pb-8">
-          <h1 className="display-heading text-[clamp(3rem,10vw,8rem)] tracking-[0.08em] uppercase">
-            RIDDHI DHAWAN
-            <span className="inline-block text-olive-muted ml-4 text-[0.6em]">✳</span>
-          </h1>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Profile Card */}
+          <div className="lg:col-span-4">
+            <div className="profile-card p-6 text-center relative overflow-hidden">
+              {/* Decorative dashed border */}
+              <div className="absolute -top-4 -left-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] border-2 border-dashed border-accent-orange/40 rounded-2xl pointer-events-none" />
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pb-16">
-          {/* GitHub Activity Card */}
-          <div className="md:col-span-4">
-            <div className="editorial-card p-5 h-full">
-              <div className="flex items-center justify-between mb-4">
-                <span className="section-label">GitHub Activity</span>
-                <a
-                  href="https://github.com/Riddz04"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-olive-muted hover:text-foreground transition-colors"
-                >
-                  @Riddz04
-                </a>
-              </div>
-              <div className="rounded overflow-hidden mb-4">
-                <img
-                  src={activityImage}
-                  alt="GitHub contributions"
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex gap-8">
-                <div>
-                  <p className="text-xs text-olive-muted">This Year</p>
-                  <p className="text-2xl font-bold text-foreground">500+</p>
+              <div className="relative z-10">
+                <div className="w-48 h-56 mx-auto mb-4 rounded-xl overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-b from-accent-orange/30 to-transparent z-10" />
+                  <img
+                    src={profileImg}
+                    alt="Riddhi Dhawan"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div>
-                  <p className="text-xs text-olive-muted">Longest Streak</p>
-                  <p className="text-2xl font-bold text-foreground">30 days</p>
+
+                <h3 className="text-xl font-bold text-dark-bg mb-1">Riddhi Dhawan</h3>
+                <div className="flex items-center justify-center gap-1 mb-3">
+                  <span className="text-accent-orange text-lg">🔥</span>
+                </div>
+                <p className="text-dark-bg/60 text-sm leading-relaxed mb-5 px-2">
+                  A Software Engineer who builds innovative full-stack solutions with passion.
+                </p>
+
+                {/* Social Icons */}
+                <div className="flex items-center justify-center gap-4">
+                  <a href="https://github.com/Riddz04" target="_blank" rel="noopener noreferrer"
+                    className="text-dark-bg/40 hover:text-accent-orange transition-colors">
+                    <Github size={18} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/riddhidhawan/" target="_blank" rel="noopener noreferrer"
+                    className="text-dark-bg/40 hover:text-accent-orange transition-colors">
+                    <Linkedin size={18} />
+                  </a>
+                  <a href="https://x.com/RiddhiDhawan4" target="_blank" rel="noopener noreferrer"
+                    className="text-dark-bg/40 hover:text-accent-orange transition-colors">
+                    <Twitter size={18} />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Profile Photo */}
-          <div className="md:col-span-4">
-            <div className="relative h-80 md:h-full rounded-lg overflow-hidden">
-              <img
-                src={profileImg}
-                alt="Riddhi Dhawan"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
+          {/* Right Content */}
+          <div className="lg:col-span-8 flex flex-col gap-8">
+            {/* Title */}
+            <div>
+              <h1 className="section-title text-[clamp(3rem,7vw,6rem)]">
+                SOFTWARE
+              </h1>
+              <h1 className="section-title-outline text-[clamp(3rem,7vw,6rem)]">
+                ENGINEER
+              </h1>
             </div>
-          </div>
 
-          {/* Right Column */}
-          <div className="md:col-span-4 flex flex-col gap-6">
-            {/* CTA */}
-            <a
-              href="mailto:riddhidhawan.work@gmail.com"
-              className="group flex items-center justify-between bg-foreground text-background px-8 py-5 rounded-full font-medium text-lg hover:bg-olive-dark transition-colors"
-            >
-              <span>GET IN TOUCH</span>
-              <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
+            {/* Description */}
+            <p className="text-white-subtle text-lg max-w-xl leading-relaxed">
+              Passionate about creating intuitive and engaging user experiences. 
+              Specialize in transforming ideas into beautifully crafted full-stack products.
+            </p>
 
-            {/* Date */}
-            <div className="flex-1 flex items-end justify-end">
-              <h2 className="display-heading text-[clamp(3rem,8vw,6rem)] text-right leading-none">
-                {currentMonth} '{currentYear}
-              </h2>
+            {/* Stats */}
+            <div className="flex flex-wrap gap-12">
+              <div>
+                <p className="stat-number">+2</p>
+                <p className="stat-label">YEARS OF</p>
+                <p className="stat-label">EXPERIENCE</p>
+              </div>
+              <div>
+                <p className="stat-number">+10</p>
+                <p className="stat-label">PROJECTS</p>
+                <p className="stat-label">COMPLETED</p>
+              </div>
+              <div>
+                <p className="stat-number">+3</p>
+                <p className="stat-label">COMPANIES</p>
+                <p className="stat-label">WORKED AT</p>
+              </div>
+            </div>
+
+            {/* Skill Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="accent-card-orange p-6 flex flex-col justify-between min-h-[140px]">
+                <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center mb-4">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <div>
+                  <p className="font-bold text-sm uppercase">Full-Stack Development,</p>
+                  <p className="font-bold text-sm uppercase">System Design</p>
+                </div>
+                <div className="flex justify-end mt-3">
+                  <ArrowRight size={20} />
+                </div>
+              </div>
+
+              <div className="accent-card-green p-6 flex flex-col justify-between min-h-[140px]">
+                <div className="w-10 h-10 rounded-lg bg-black/10 flex items-center justify-center mb-4">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                </div>
+                <div>
+                  <p className="font-bold text-sm uppercase">React, Next.js, Node.js,</p>
+                  <p className="font-bold text-sm uppercase">TypeScript, Python</p>
+                </div>
+                <div className="flex justify-end mt-3">
+                  <ArrowRight size={20} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
