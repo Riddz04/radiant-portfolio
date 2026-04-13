@@ -1,5 +1,50 @@
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
-import profileImg from "@/assets/photo2.jpeg";
+import profileImg from "@/assets/Pic.jpeg";
+
+// Social icon animation styles
+const socialLinkStyles = `
+  .social-icon-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid white;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s;
+  }
+  .social-icon-link::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: top 0.5s;
+    z-index: 1;
+  }
+  .social-icon-link:hover::before {
+    top: 0;
+  }
+  .social-icon-link .icon {
+    position: relative;
+    color: #262626;
+    z-index: 2;
+    transition: all 0.5s;
+  }
+  .social-icon-link:hover .icon {
+    color: white;
+    transform: rotateY(360deg);
+  }
+  .social-github::before { background: #333; }
+  .social-twitter::before { background: #55acee; }
+  .social-linkedin::before { background: #0077b5; }
+  .social-instagram::before { background: #E1306C; }
+`;
 
 const ProfileCard = () => {
   return (
@@ -45,39 +90,40 @@ const ProfileCard = () => {
           A Software Engineer who has developed countless innovative solutions.
         </p>
 
-        {/* Social Icons - matching reference style */}
-        <div className="flex items-center justify-center gap-5">
+        {/* Social Icons with animation */}
+        <style>{socialLinkStyles}</style>
+        <div className="flex items-center justify-center gap-3">
           <a
             href="https://github.com/Riddz04"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full border border-dark-bg/10 flex items-center justify-center text-dark-bg/40 hover:text-accent-orange hover:border-accent-orange/40 transition-all duration-300"
+            className="social-icon-link social-github"
           >
-            <Github size={18} />
+            <Github size={20} className="icon" />
           </a>
           <a
             href="https://x.com/RiddhiDhawan4"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full border border-dark-bg/10 flex items-center justify-center text-dark-bg/40 hover:text-accent-orange hover:border-accent-orange/40 transition-all duration-300"
+            className="social-icon-link social-twitter"
           >
-            <Twitter size={18} />
+            <Twitter size={20} className="icon" />
           </a>
           <a
             href="https://www.linkedin.com/in/riddhidhawan/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full border border-dark-bg/10 flex items-center justify-center text-dark-bg/40 hover:text-accent-orange hover:border-accent-orange/40 transition-all duration-300"
+            className="social-icon-link social-linkedin"
           >
-            <Linkedin size={18} />
+            <Linkedin size={20} className="icon" />
           </a>
           <a
             href="https://www.instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full border border-dark-bg/10 flex items-center justify-center text-dark-bg/40 hover:text-accent-orange hover:border-accent-orange/40 transition-all duration-300"
+            className="social-icon-link social-instagram"
           >
-            <Instagram size={18} />
+            <Instagram size={20} className="icon" />
           </a>
         </div>
       </div>

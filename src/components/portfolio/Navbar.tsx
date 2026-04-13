@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Home, Monitor, BarChart3, Wrench, Mail, Menu, X } from "lucide-react";
+import { Home, Monitor, BarChart3, Wrench, Mail, Menu, X, FileText } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +17,7 @@ const Navbar = () => {
     { icon: BarChart3, href: "#experience", label: "Experience" },
     { icon: Wrench, href: "#tools", label: "Tools" },
     { icon: Mail, href: "#contact", label: "Contact" },
+    { icon: FileText, href: "/Riddhi_Dhawan.pdf", label: "Resume", download: true },
   ];
 
   return (
@@ -29,6 +30,7 @@ const Navbar = () => {
           <a
             key={item.label}
             href={item.href}
+            download={item.download}
             className="p-3 rounded-full text-white-subtle hover:text-foreground hover:bg-dark-card transition-all duration-200"
             title={item.label}
           >
@@ -55,6 +57,7 @@ const Navbar = () => {
               <a
                 key={item.label}
                 href={item.href}
+                download={item.download}
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-3 text-xl text-white-muted hover:text-foreground transition-colors"
               >

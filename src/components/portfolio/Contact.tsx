@@ -1,19 +1,6 @@
-import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailtoLink = `mailto:riddhidhawan.work@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.email}`;
-    window.location.href = mailtoLink;
-  };
-
   return (
     <section id="contact" className="py-20">
       {/* Section Header */}
@@ -24,53 +11,15 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-white-subtle text-xs uppercase tracking-widest mb-2 font-semibold">Name</label>
-            <input
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-dark-surface border border-dark-border rounded-xl px-5 py-4 text-foreground placeholder:text-white-subtle/40 focus:outline-none focus:border-accent-orange transition-colors"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-white-subtle text-xs uppercase tracking-widest mb-2 font-semibold">Email</label>
-            <input
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full bg-dark-surface border border-dark-border rounded-xl px-5 py-4 text-foreground placeholder:text-white-subtle/40 focus:outline-none focus:border-accent-orange transition-colors"
-              placeholder="Your@email.com"
-              required
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-white-subtle text-xs uppercase tracking-widest mb-2 font-semibold">Message</label>
-          <textarea
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            rows={5}
-            className="w-full bg-dark-surface border border-dark-border rounded-xl px-5 py-4 text-foreground placeholder:text-white-subtle/40 focus:outline-none focus:border-accent-orange transition-colors resize-none"
-            placeholder="Message"
-            required
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-accent-orange text-foreground font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-3 hover:brightness-110 transition-all text-lg"
-        >
-          <span>Submit</span>
-          <ArrowRight size={20} />
-        </button>
-      </form>
+      {/* Contact Button */}
+      <a
+        href="mailto:riddhidhawan.work@gmail.com"
+        className="inline-flex items-center gap-3 bg-accent-orange text-foreground font-bold py-4 px-8 rounded-xl hover:brightness-110 transition-all text-lg"
+      >
+        <Mail size={20} />
+        <span>Contact Me</span>
+        <ArrowRight size={20} />
+      </a>
     </section>
   );
 };

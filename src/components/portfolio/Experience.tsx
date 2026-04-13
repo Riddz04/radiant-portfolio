@@ -5,21 +5,21 @@ const Experience = () => {
       position: "Full-Stack Developer",
       duration: "Nov 2025 – Present",
       description: "Developing a production-grade Next.js application with end-to-end functionality, integrating Supabase backend services and deploying the product MVP.",
-      link: "#",
+      link: "https://pawgeny.com/",
     },
     {
       company: "BlueStock Fintech",
       position: "SDE Intern",
       duration: "Nov 2025 – Dec 2025",
       description: "Worked on developing core product features for Bluestock's fintech platform, building scalable APIs and optimizing backend performance.",
-      link: "#",
+      link: "https://bluestock.in/",
     },
     {
       company: "DRDO",
       position: "Summer Research Intern",
       duration: "June 2025 – July 2025",
       description: "Explored the electrical-software interface via semiconductor simulations. Conducted Monte Carlo analysis on MCT photodiodes and built a simulation dashboard.",
-      link: "#",
+      link: "https://www.drdo.gov.in/drdo/",
     },
   ];
 

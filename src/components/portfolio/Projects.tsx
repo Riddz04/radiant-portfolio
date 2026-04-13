@@ -27,6 +27,7 @@ const Projects = () => {
       subtitle: "AI-Powered Captioning",
       description: "A web app that simplifies adding accurate, timestamped captions to media files using AI-powered transcription.",
       tags: ["Next.js", "Node.js", "AWS-S3", "WhisperX", "FFMPEG"],
+      image:"src/assets/captionize.png",
       isVideo: false,
       github: "https://github.com/Riddz04/CaptionizeIt",
       external: "https://captionizeit.vercel.app/",
@@ -36,6 +37,7 @@ const Projects = () => {
       subtitle: "AI Content Creation",
       description: "A web app that generates podcast episodes using AI-powered transcription and editing tools.",
       tags: ["Next.js", "React", "Express", "OpenAI API", "Elevenlabs API"],
+      image:"src/assets/podcast.png",
       isVideo: false,
       github: "https://github.com/Riddz04/ai-podcast",
       external: "https://pod-ai-52ct.vercel.app/",
@@ -45,6 +47,7 @@ const Projects = () => {
       subtitle: "Conversational AI Agent",
       description: "A conversational AI agent that helps users book appointments on Google Calendar through natural language chat.",
       tags: ["FastAPI", "Streamlit", "LangGraph", "Grok API"],
+      image:"src/assets/calendar.png",
       isVideo: false,
       github: "https://github.com/Riddz04/ai-please-book-it-im-tired",
       external: null,
@@ -54,6 +57,7 @@ const Projects = () => {
       subtitle: "Kanban Task Manager",
       description: "A modern Kanban-style task management app with drag-and-drop, auth, and persistent state.",
       tags: ["React", "TypeScript", "Zustand", "Firebase", "dnd-kit"],
+      image:"src/assets/taskit.png",
       isVideo: false,
       github: "https://github.com/Riddz04/task_it",
       external: "https://taskit-kappa.vercel.app/",
@@ -79,6 +83,12 @@ const Projects = () => {
                   src={project.image}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   playsInline autoPlay muted loop
+                />
+              ) : project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-dark-card to-dark-surface flex items-center justify-center">
