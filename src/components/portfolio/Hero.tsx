@@ -22,7 +22,7 @@ const Hero = () => {
       {/* Stats */}
       <div className="flex flex-wrap gap-12 mb-10">
         <div>
-          <p className="stat-number">+2</p>
+          <p className="stat-number">+1</p>
           <p className="stat-label">YEARS OF</p>
           <p className="stat-label">EXPERIENCE</p>
         </div>
@@ -32,7 +32,7 @@ const Hero = () => {
           <p className="stat-label">COMPLETED</p>
         </div>
         <div>
-          <p className="stat-number">+3</p>
+          <p className="stat-number">+2</p>
           <p className="stat-label">COMPANIES</p>
           <p className="stat-label">WORKED AT</p>
         </div>
