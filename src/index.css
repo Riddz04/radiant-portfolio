@@ -2,41 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
-    --cream: 40 23% 93%;
-    --cream-dark: 40 15% 88%;
-    --olive: 50 8% 35%;
-    --olive-dark: 50 10% 25%;
-    --olive-muted: 50 6% 55%;
-    --charcoal: 40 5% 12%;
-    --dark: 40 5% 8%;
-    --dark-surface: 40 5% 14%;
-    --accent-olive: 80 15% 45%;
-    --warm-gray: 40 8% 70%;
+    --dark-bg: 0 0% 4%;
+    --dark-surface: 0 0% 8%;
+    --dark-card: 0 0% 12%;
+    --dark-border: 0 0% 16%;
+    --white: 0 0% 100%;
+    --white-muted: 0 0% 70%;
+    --white-subtle: 0 0% 45%;
+    --accent-orange: 24 95% 53%;
+    --accent-green: 75 80% 60%;
+    --accent-gradient-start: 24 95% 53%;
+    --accent-gradient-end: 45 100% 55%;
 
-    --background: var(--cream);
-    --foreground: var(--charcoal);
-    --card: var(--cream-dark);
-    --card-foreground: var(--charcoal);
-    --popover: var(--cream);
-    --popover-foreground: var(--charcoal);
-    --primary: var(--olive-dark);
-    --primary-foreground: var(--cream);
-    --secondary: var(--cream-dark);
-    --secondary-foreground: var(--charcoal);
-    --muted: var(--cream-dark);
-    --muted-foreground: var(--olive-muted);
-    --accent: var(--accent-olive);
-    --accent-foreground: var(--cream);
+    --background: var(--dark-bg);
+    --foreground: var(--white);
+    --card: var(--dark-card);
+    --card-foreground: var(--white);
+    --popover: var(--dark-surface);
+    --popover-foreground: var(--white);
+    --primary: var(--accent-orange);
+    --primary-foreground: var(--white);
+    --secondary: var(--dark-surface);
+    --secondary-foreground: var(--white);
+    --muted: var(--dark-surface);
+    --muted-foreground: var(--white-subtle);
+    --accent: var(--accent-orange);
+    --accent-foreground: var(--white);
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: var(--cream-dark);
-    --input: var(--cream-dark);
-    --ring: var(--olive);
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--dark-border);
+    --input: var(--dark-border);
+    --ring: var(--accent-orange);
+    --radius: 1rem;
   }
 
   * {
@@ -58,22 +59,22 @@
   }
 
   ::selection {
-    background-color: hsl(var(--olive) / 0.2);
-    color: hsl(var(--charcoal));
+    background-color: hsl(var(--accent-orange) / 0.3);
+    color: hsl(var(--white));
   }
 
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: hsl(var(--cream));
+    background: hsl(var(--dark-bg));
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--olive-muted));
+    background: hsl(var(--white-subtle));
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--olive));
+    background: hsl(var(--white-muted));
   }
 }
 
@@ -81,58 +82,109 @@
   .section-label {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--accent-orange));
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: hsl(var(--white));
+  }
+
+  .section-title-outline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    -webkit-text-stroke: 2px hsl(var(--white-subtle));
+    color: transparent;
+  }
+
+  .glass-card {
+    background: hsl(var(--dark-card) / 0.6);
+    border: 1px solid hsl(var(--dark-border));
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    border-color: hsl(var(--white-subtle) / 0.3);
+    transform: translateY(-2px);
+  }
+
+  .accent-card-orange {
+    background: linear-gradient(135deg, hsl(var(--accent-orange)), hsl(var(--accent-orange) / 0.8));
+    border-radius: var(--radius);
+    color: hsl(var(--white));
+    transition: all 0.3s ease;
+  }
+
+  .accent-card-green {
+    background: linear-gradient(135deg, hsl(var(--accent-green)), hsl(var(--accent-green) / 0.8));
+    border-radius: var(--radius);
+    color: hsl(var(--dark-bg));
+    transition: all 0.3s ease;
+  }
+
+  .profile-card {
+    background: hsl(var(--white));
+    border-radius: var(--radius);
+    color: hsl(var(--dark-bg));
+    position: relative;
+  }
+
+  .nav-pill {
+    background: hsl(var(--dark-surface) / 0.8);
+    border: 1px solid hsl(var(--dark-border));
+    border-radius: 9999px;
+    backdrop-filter: blur(20px);
+  }
+
+  .stat-number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1;
+    color: hsl(var(--white));
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: hsl(var(--olive-muted));
+    color: hsl(var(--white-subtle));
   }
 
-  .display-heading {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 0.95;
-    color: hsl(var(--charcoal));
-  }
-
-  .display-heading-light {
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 0.95;
-    color: hsl(var(--cream));
-  }
-
-  .editorial-card {
-    background: hsl(var(--cream-dark) / 0.6);
-    border: 1px solid hsl(var(--olive-muted) / 0.15);
+  .experience-card {
+    background: hsl(var(--dark-surface));
+    border: 1px solid hsl(var(--dark-border));
     border-radius: var(--radius);
     transition: all 0.3s ease;
   }
 
-  .editorial-card:hover {
-    border-color: hsl(var(--olive) / 0.3);
+  .experience-card:hover {
+    border-color: hsl(var(--accent-orange) / 0.4);
+  }
+
+  .tool-card {
+    background: hsl(var(--dark-surface));
+    border: 1px solid hsl(var(--dark-border));
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+  }
+
+  .tool-card:hover {
+    border-color: hsl(var(--white-subtle) / 0.3);
     transform: translateY(-2px);
-  }
-
-  .dark-section {
-    background: hsl(var(--dark));
-    color: hsl(var(--cream));
-  }
-
-  .pill-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.35rem 1rem;
-    border: 1px solid hsl(var(--olive-muted) / 0.4);
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    color: hsl(var(--olive-muted));
-    transition: all 0.2s ease;
-  }
-
-  .pill-tag-light {
-    border-color: hsl(var(--cream) / 0.25);
-    color: hsl(var(--cream) / 0.7);
   }
 }
 
@@ -147,9 +199,14 @@
     to { opacity: 1; }
   }
 
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
   .animate-fade-in-up {
@@ -157,10 +214,14 @@
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 0.5s ease-out forwards;
   }
 
-  .animate-marquee {
-    animation: marquee 20s linear infinite;
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
 }
