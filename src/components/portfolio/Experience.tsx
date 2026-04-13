@@ -27,7 +27,7 @@ const Experience = () => {
     <section id="experience" className="py-20">
       {/* Section Header */}
       <div className="flex items-baseline gap-4 mb-16">
-        <h2 className="section-title text-[clamp(2rem,4vw,3rem)]">2+ YEARS OF</h2>
+        <h2 className="section-title text-[clamp(2rem,4vw,3rem)]">1+ YEARS OF</h2>
         <h2 className="section-title-outline text-[clamp(2rem,4vw,3rem)]">EXPERIENCE</h2>
       </div>
 
