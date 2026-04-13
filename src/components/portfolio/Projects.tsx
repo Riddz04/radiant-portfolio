@@ -61,69 +61,67 @@ const Projects = () => {
   ];
 
   return (
-    <section id="work" className="py-24 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="flex items-baseline gap-4 mb-16">
-          <h2 className="section-title text-[clamp(2rem,5vw,3.5rem)]">RECENT</h2>
-          <h2 className="section-title-outline text-[clamp(2rem,5vw,3.5rem)]">PROJECTS</h2>
-        </div>
+    <section id="work" className="py-20">
+      {/* Section Header */}
+      <div className="flex items-baseline gap-4 mb-16">
+        <h2 className="section-title text-[clamp(2rem,4vw,3rem)]">RECENT</h2>
+        <h2 className="section-title-outline text-[clamp(2rem,4vw,3rem)]">PROJECTS</h2>
+      </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <div key={index} className="glass-card group overflow-hidden">
-              {/* Preview */}
-              <div className="aspect-[4/3] overflow-hidden bg-dark-surface relative">
-                {project.isVideo && project.image ? (
-                  <video
-                    src={project.image}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    playsInline autoPlay muted loop
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-dark-card to-dark-surface flex items-center justify-center">
-                    <span className="text-4xl font-black text-white-subtle/20">{project.title[0]}</span>
-                  </div>
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {projects.map((project, index) => (
+          <div key={index} className="glass-card group overflow-hidden">
+            {/* Preview */}
+            <div className="aspect-[4/3] overflow-hidden bg-dark-surface relative">
+              {project.isVideo && project.image ? (
+                <video
+                  src={project.image}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  playsInline autoPlay muted loop
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-dark-card to-dark-surface flex items-center justify-center">
+                  <span className="text-4xl font-black text-white-subtle/20">{project.title[0]}</span>
+                </div>
+              )}
+
+              {/* Overlay on hover */}
+              <div className="absolute inset-0 bg-dark-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-foreground/20 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent-orange transition-colors">
+                    <Github size={18} />
+                  </a>
                 )}
-
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-dark-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-foreground/20 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent-orange transition-colors">
-                      <Github size={18} />
-                    </a>
-                  )}
-                  {project.external && (
-                    <a href={project.external} target="_blank" rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-foreground/20 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent-orange transition-colors">
-                      <ExternalLink size={18} />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* Info */}
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-foreground mb-1">{project.title}</h3>
-                <p className="text-white-subtle text-sm mb-3">{project.subtitle}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} className="text-[0.65rem] px-2.5 py-1 rounded-full border border-dark-border text-white-subtle">
-                      {tag}
-                    </span>
-                  ))}
-                  {project.tags.length > 3 && (
-                    <span className="text-[0.65rem] px-2.5 py-1 rounded-full border border-dark-border text-white-subtle">
-                      +{project.tags.length - 3}
-                    </span>
-                  )}
-                </div>
+                {project.external && (
+                  <a href={project.external} target="_blank" rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-foreground/20 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent-orange transition-colors">
+                    <ExternalLink size={18} />
+                  </a>
+                )}
               </div>
             </div>
-          ))}
-        </div>
+
+            {/* Info */}
+            <div className="p-5">
+              <h3 className="text-lg font-bold text-foreground mb-1">{project.title}</h3>
+              <p className="text-white-subtle text-sm mb-3">{project.subtitle}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.slice(0, 3).map((tag) => (
+                  <span key={tag} className="text-[0.65rem] px-2.5 py-1 rounded-full border border-dark-border text-white-subtle">
+                    {tag}
+                  </span>
+                ))}
+                {project.tags.length > 3 && (
+                  <span className="text-[0.65rem] px-2.5 py-1 rounded-full border border-dark-border text-white-subtle">
+                    +{project.tags.length - 3}
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
