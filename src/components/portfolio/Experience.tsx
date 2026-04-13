@@ -1,8 +1,8 @@
 const Experience = () => {
   const experiences = [
     {
-      company: "Stealth AI Startup",
-      position: "Full-Stack Developer",
+      company: "Pawgeny",
+      position: "Founding Full-Stack Developer",
       duration: "Nov 2025 – Present",
       description: "Developing a production-grade Next.js application with end-to-end functionality, integrating Supabase backend services and deploying the product MVP.",
       link: "https://pawgeny.com/",
