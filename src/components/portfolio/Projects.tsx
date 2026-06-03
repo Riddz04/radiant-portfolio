@@ -3,6 +3,16 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "Lingo-Riddz",
+      subtitle: "A Hinglish Programming Language",
+      description: "A programming language that combines English and Hindi words to make coding more accessible and intuitive.",
+      tags: ["Python", "ANTLR", "Lexer", "Parser"],
+      image: "https://res.cloudinary.com/dfyuhslyv/image/upload/v1780486730/videoframe_9932_iy625j.png",
+      isVideo: false,
+      github: "https://github.com/Riddz04/Lingo",
+      external: "https://pypi.org/project/riddz/",
+    },
+    {
       title: "Dev.Assist",
       subtitle: "Developer Resource Hub",
       description: "A modern web application that helps developers discover, organize, and curate the best resources from across the web.",
