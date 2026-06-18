@@ -3,6 +3,16 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "LyricLens",
+      subtitle: "A spotify translator for lyrics you dont understand but songs you love",
+      description: "Translate Spotify Web Player lyrics into any language in real time, powered by Claude AI.",
+      tags: ["Chrome extension", "Manifest V3", "Spotify lyric fetch call", "Javascript", "Devtools"],
+      image: "https://res.cloudinary.com/dfyuhslyv/video/upload/v1781774366/Screen_Recording_2026-06-18_at_12.04.45_z02whf.mp4",
+      isVideo: true,
+      github: "https://github.com/Riddz04/LyricLens",
+      external: "https://res.cloudinary.com/dfyuhslyv/video/upload/v1781774372/Screen_Recording_2026-06-18_at_11.55.23_j0ukhv.mp4",
+    },
+    {
       title: "Lingo-Riddz",
       subtitle: "A Hinglish Programming Language",
       description: "A programming language that combines English and Hindi words to make coding more accessible and intuitive.",
