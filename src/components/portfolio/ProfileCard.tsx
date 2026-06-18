@@ -110,7 +110,7 @@ const ProfileCard = () => {
             <Twitter size={20} className="icon" />
           </a>
           <a
-            href="https://www.linkedin.com/in/riddhidhawan/"
+            href="https://www.linkedin.com/in/riddhidhawancodes/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon-link social-linkedin"
@@ -118,7 +118,7 @@ const ProfileCard = () => {
             <Linkedin size={20} className="icon" />
           </a>
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/riddhi.i4/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon-link social-instagram"
